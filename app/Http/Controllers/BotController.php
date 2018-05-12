@@ -12,6 +12,7 @@ use CodeBot\Build\Solid;
 class BotController extends Controller
 {
     private $first = false;
+    private $usuario = '';
 
     public function subscribe()
     {
@@ -30,7 +31,6 @@ class BotController extends Controller
         $postback = $sender->getPostback();
         $keyword  = array('ola', 'tudo bem', 'como vai', 'poderia me ajudar', 'oi');
         $message = new ButtonsTemplate($senderId);
-        $usuario = '';
 
         $bot = Solid::factory();
         Solid::pageAccessToken('EAAFP19VlnrIBADsfumDncgn5YWXojvrNmpZBf4OxGVcLsRQOTcJs040a26SsLTIdU1crz1wqa668ZBrQgZBgZBjQJmAO0bfMszqfwP6ABAn9umymH6OPlYeEFvrSzF5mO7f941cCIvYl3fQ3xOUqRy3sZBl9sPFLpXl8SAJzjNwZDZD');
@@ -39,12 +39,11 @@ class BotController extends Controller
         if(!$this->first){
             $bot->message('text', 'ola eu sou o vimit, por favor seu nome: ');
             $this->first = true;
-        }
-        if($this->first){
-            if($usuario === '')
-            $usuario = $sender->getMessage();
-            $bot->message('text', 'Ola '. $usuario);
-        }
+        }else{
+            if($this->usuario === '')
+            $this->usuario = $sender->getMessage();
+            $bot->message('text', 'Ola '. $this->usuario);
+         }
 
 
 
