@@ -23,18 +23,34 @@ class BotController extends Controller
     {
         $sender = new SenderRequest;
         $senderId = $sender->getSenderId();
-        $kwop = array('Ola', 'Tudo Bem');
+        $keyword  = array('ola', 'tudo bem', 'como vai', 'poderia me ajudar', 'oi');
+        $verInicial = false;
 
 
         $bot = Solid::factory();
         Solid::pageAccessToken('EAAFP19VlnrIBADsfumDncgn5YWXojvrNmpZBf4OxGVcLsRQOTcJs040a26SsLTIdU1crz1wqa668ZBrQgZBgZBjQJmAO0bfMszqfwP6ABAn9umymH6OPlYeEFvrSzF5mO7f941cCIvYl3fQ3xOUqRy3sZBl9sPFLpXl8SAJzjNwZDZD');
         Solid::setSender($senderId);
 
-        if($sender->getMessage() == 'Ola') {
+
+        if(in_array($keyword, $sender->getMessage())){
             $bot->message('text', 'Ola eu sou o VIMIT !! seu professor virtual de musica, para que eu possa lhe ajudar melhor poderia me dizer qual o seu nome ?');
+            $verInicial = true;
         }else{
-            $bot->message('text', 'Ola'. $sender->getMessage(). ' em que que posso lhe ajudar ?');
+            if($verInicial == true){
+                $usuario = $sender->getMessage();
+                $bot->message('text', 'Ola, '. $usuario . 'poderia me dizer também sua idade ?');
+                if(is_int($sender->getMessage())){
+                    $usuario = $sender->getMessage();
+                }else{
+                    $bot->message('text', 'Hmmm acho que essa não é sua idade '. $usuario. ' poderia me dizer sua idade por favor')
+               }
+            }else{
+                $bot->message('text', 'Ola eu sou o VIMIT !! seu professor virtual de musica, para que eu possa lhe ajudar melhor poderia me dizer qual o seu nome ?');
+                $verInicial = true;
+            }
         }
+
+
 
 
 
