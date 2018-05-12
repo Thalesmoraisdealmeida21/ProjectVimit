@@ -31,16 +31,23 @@ class BotController extends Controller
         $postback = $sender->getPostback();
         $keyword  = array('ola', 'tudo bem', 'como vai', 'poderia me ajudar', 'oi');
         $message = new ButtonsTemplate($senderId);
+        $idade = 0;
 
         $bot = Solid::factory();
         Solid::pageAccessToken('EAAFP19VlnrIBADsfumDncgn5YWXojvrNmpZBf4OxGVcLsRQOTcJs040a26SsLTIdU1crz1wqa668ZBrQgZBgZBjQJmAO0bfMszqfwP6ABAn9umymH6OPlYeEFvrSzF5mO7f941cCIvYl3fQ3xOUqRy3sZBl9sPFLpXl8SAJzjNwZDZD');
         Solid::setSender($senderId);
         $bot->message('text', $this->first);
         if($sender->getMessage() === 'Ola'){
-            $bot->message('text', 'ola eu sou o vimit, por favor seu nome: '. $this->first);
+            $bot->message('text', 'ola eu sou o VIMIT, seu professor virtual de musica por favor me diga seu nome para que eu possa lhe ajudar ? ');
         }else{
             $this->usuario = $sender->getMessage();
-            $bot->message('text', 'Ola '. $this->usuario);
+            $bot->message('text', 'Ola '. $this->usuario. ' poderia me dizer sua idade ?');
+            if(is_int($sender->getMessage())){
+                $idade = $sender->getMessage();
+            }else{
+                $bot->message('text', 'Hmmm Acho que essa não é sua idade poderia dizer novamente');
+            }
+
          }
 
 
