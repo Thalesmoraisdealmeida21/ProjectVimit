@@ -37,8 +37,9 @@ class BotController extends Controller
         Solid::setSender($senderId);
 
         if($this->first === 0){
-            $bot->message('text', 'ola eu sou o vimit, por favor seu nome: '. $this->first);
             $this->first = 1;
+            $bot->message('text', 'ola eu sou o vimit, por favor seu nome: '. $this->first);
+
         }else{
             if($this->usuario === '')
             $this->usuario = $sender->getMessage();
