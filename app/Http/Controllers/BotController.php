@@ -42,7 +42,7 @@ class BotController extends Controller
         }else{
             $this->usuario = $sender->getMessage();
             $bot->message('text', 'Ola '. $this->usuario. ' poderia me dizer sua idade ?');
-            if(is_int($sender->getMessage())){
+            if($sender->getMessage() > 0){
                 $idade = $sender->getMessage();
             }else{
                 $bot->message('text', 'Hmmm Acho que essa não é sua idade poderia dizer novamente');
