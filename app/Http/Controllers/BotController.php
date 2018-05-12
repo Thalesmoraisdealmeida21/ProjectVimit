@@ -24,7 +24,7 @@ class BotController extends Controller
         $sender = new SenderRequest;
         $senderId = $sender->getSenderId();
         $keyword  = array('ola', 'tudo bem', 'como vai', 'poderia me ajudar', 'oi');
-        $verInicial = false;
+        $verInicial = 0;
 
 
         $bot = Solid::factory();
@@ -34,19 +34,12 @@ class BotController extends Controller
 
         if($sender->getMessage() == 'Ola'){
             $bot->message('text', 'Ola eu sou o VIMIT !! seu professor virtual de musica, para que eu possa lhe ajudar melhor poderia me dizer qual o seu nome ?');
-            $verInicial = true;
-        }else{
-            if($verInicial == true){
+            $verInicial = 1;
+        }
+        if($verInicial == 1){
                 $usuario = $sender->getMessage();
                 $bot->message('text', 'Ola, '. $usuario . 'poderia me dizer também sua idade ?');
-                
-            }
-        }
-
-
-
-
-
-    }
+         }
+     }
 
 }
