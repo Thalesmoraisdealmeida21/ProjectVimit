@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use CodeBot\CallSendApi;
 use CodeBot\Element\Button;
 use CodeBot\SenderRequest;
 use CodeBot\TemplatesMessage\ButtonsTemplate;
@@ -31,24 +32,36 @@ class BotController extends Controller
         $postback = $sender->getPostback();
         $keyword  = array('ola', 'tudo bem', 'como vai', 'poderia me ajudar', 'oi');
         $message = new ButtonsTemplate($senderId);
+        $callSendApi = new CallSendApi('EAAFP19VlnrIBADsfumDncgn5YWXojvrNmpZBf4OxGVcLsRQOTcJs040a26SsLTIdU1crz1wqa668ZBrQgZBgZBjQJmAO0bfMszqfwP6ABAn9umymH6OPlYeEFvrSzF5mO7f941cCIvYl3fQ3xOUqRy3sZBl9sPFLpXl8SAJzjNwZDZD')
         $idade = 0;
 
         $bot = Solid::factory();
-        Solid::pageAccessToken('EAAFP19VlnrIBADsfumDncgn5YWXojvrNmpZBf4OxGVcLsRQOTcJs040a26SsLTIdU1crz1wqa668ZBrQgZBgZBjQJmAO0bfMszqfwP6ABAn9umymH6OPlYeEFvrSzF5mO7f941cCIvYl3fQ3xOUqRy3sZBl9sPFLpXl8SAJzjNwZDZD');
         Solid::setSender($senderId);
-        $bot->message('text', $this->first);
-        if($sender->getMessage() === 'Ola'){
-            $bot->message('text', 'ola eu sou o VIMIT, seu professor virtual de musica por favor me diga seu nome para que eu possa lhe ajudar ? ');
-        }else{
-            $this->usuario = $sender->getMessage();
-            $bot->message('text', 'Ola '. $this->usuario. ' poderia me dizer sua idade ?');
-            if($sender->getMessage() > 0){
-                $idade = $sender->getMessage();
-            }else{
-                $bot->message('text', 'Hmmm Acho que essa não é sua idade poderia dizer novamente');
-            }
+        $message = new ButtonsTemplate($senderId);
 
-         }
+
+       if ($postback === 'abrir_site') {
+           $message->add(new Button('web_url', 'Google', 'https://www.google.com.br'));
+           $callSendApi->make($message->message('Que tal testarmos a abertura de um site?'));
+       } else if ($postback === 'outro_fluxo') {
+           $message->add(new Button('postback', 'Abrir site', 'abrir_site'));
+           $callSendApi->make($message->message('Legal, né, vamos tentar uma pesquisa?'));
+       } else {
+           $message->add(new Button('postback', 'Botão 1', 'abrir_site'));
+           $message->add(new Button('postback', 'Botão 2', 'abrir_site'));
+           $message->add(new Button('postback', 'Botão 3', 'abrir_site'));
+           $callSendApi->make($message->message('Vamos testar um postback'));
+           $message = new ButtonsTemplate($senderId);
+           $message->add(new Button('postback', 'Botão 4', 'outro_fluxo'));
+           $message->add(new Button('postback', 'Botão 5', 'outro_fluxo'));
+           $message->add(new Button('postback', 'Botão 6', 'outro_fluxo'));
+           $callSendApi->make($message->message('Mais algumas opções'));
+       }
+
+
+
+
+
 
 
 
