@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use CodeBot\Element\Button;
 use CodeBot\SenderRequest;
+use CodeBot\TemplatesMessage\ButtonsTemplate;
 use Illuminate\Http\Request;
 use CodeBot\WebHook;
 use CodeBot\Build\Solid;
 
 class BotController extends Controller
 {
+    private $first = false;
+
     public function subscribe()
     {
         $subscribe = (new WebHook)->check('a1sd65162sad16as6das1d1as66asd1sad1611');
@@ -23,25 +27,29 @@ class BotController extends Controller
     {
         $sender = new SenderRequest;
         $senderId = $sender->getSenderId();
+        $postback = $sender->getPostback();
         $keyword  = array('ola', 'tudo bem', 'como vai', 'poderia me ajudar', 'oi');
-        $verInicial = 0;
-
+        $message = new ButtonsTemplate($senderId);
+        $usuario = '';
 
         $bot = Solid::factory();
         Solid::pageAccessToken('EAAFP19VlnrIBADsfumDncgn5YWXojvrNmpZBf4OxGVcLsRQOTcJs040a26SsLTIdU1crz1wqa668ZBrQgZBgZBjQJmAO0bfMszqfwP6ABAn9umymH6OPlYeEFvrSzF5mO7f941cCIvYl3fQ3xOUqRy3sZBl9sPFLpXl8SAJzjNwZDZD');
         Solid::setSender($senderId);
 
-
-
-        if($verInicial == 1){
-                $usuario = $sender->getMessage();
-                $bot->message('text', 'Ola, '. $usuario . 'poderia me dizer também sua idade ?');
-         }else{
-            if($sender->getMessage() == 'Ola'){
-                $bot->message('text', 'Ola eu sou o VIMIT !! seu professor virtual de musica, para que eu possa lhe ajudar melhor poderia me dizer qual o seu nome ?');
-                $verInicial = 1;
-            }
+        if(!$this->first){
+            $bot->message('text', 'ola eu sou o vimit, por favor seu nome: ');
+            $first = true;
         }
+        if($this->first){
+            if($usuario === '')
+            $usuario = $sender->getMessage();
+            $bot->message('text', 'Ola '. $usuario);
+        }
+
+
+
+
+
      }
 
 }
