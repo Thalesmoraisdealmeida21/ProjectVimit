@@ -23,14 +23,21 @@ class BotController extends Controller
     {
         $sender = new SenderRequest;
         $senderId = $sender->getSenderId();
+        $kwop = array('Ola', 'Tudo Bem');
 
 
         $bot = Solid::factory();
         Solid::pageAccessToken('EAAFP19VlnrIBADsfumDncgn5YWXojvrNmpZBf4OxGVcLsRQOTcJs040a26SsLTIdU1crz1wqa668ZBrQgZBgZBjQJmAO0bfMszqfwP6ABAn9umymH6OPlYeEFvrSzF5mO7f941cCIvYl3fQ3xOUqRy3sZBl9sPFLpXl8SAJzjNwZDZD');
         Solid::setSender($senderId);
 
-        $bot->message('text', 'Ola eu sou o VIMIT !! seu professor virtual de musica, para que eu possa lhe ajudar melhor poderia me dizer qual o seu nome ?');
-        $bot->message('text', 'Ola'. $sender->getMessage(). ' em que que posso lhe ajudar ?');
+        if($sender->getMessage() == 'Ola') {
+            $bot->message('text', 'Ola eu sou o VIMIT !! seu professor virtual de musica, para que eu possa lhe ajudar melhor poderia me dizer qual o seu nome ?');
+        }else{
+            $bot->message('text', 'Ola'. $sender->getMessage(). ' em que que posso lhe ajudar ?');
+        }
+
+
+
     }
 
 }
