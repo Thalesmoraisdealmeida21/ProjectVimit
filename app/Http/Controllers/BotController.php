@@ -11,7 +11,7 @@ use CodeBot\Build\Solid;
 
 class BotController extends Controller
 {
-    private $first = false;
+    private $first = 0;
     private $usuario = '';
 
     public function subscribe()
@@ -36,9 +36,9 @@ class BotController extends Controller
         Solid::pageAccessToken('EAAFP19VlnrIBADsfumDncgn5YWXojvrNmpZBf4OxGVcLsRQOTcJs040a26SsLTIdU1crz1wqa668ZBrQgZBgZBjQJmAO0bfMszqfwP6ABAn9umymH6OPlYeEFvrSzF5mO7f941cCIvYl3fQ3xOUqRy3sZBl9sPFLpXl8SAJzjNwZDZD');
         Solid::setSender($senderId);
 
-        if(!$this->first){
+        if($this->first === 0){
             $bot->message('text', 'ola eu sou o vimit, por favor seu nome: '. $this->first);
-            $this->first = true;
+            $this->first = 1;
         }else{
             if($this->usuario === '')
             $this->usuario = $sender->getMessage();
