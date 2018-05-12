@@ -32,14 +32,16 @@ class BotController extends Controller
         Solid::setSender($senderId);
 
 
-        if($sender->getMessage() == 'Ola'){
-            $bot->message('text', 'Ola eu sou o VIMIT !! seu professor virtual de musica, para que eu possa lhe ajudar melhor poderia me dizer qual o seu nome ?');
-            $verInicial = 1;
-        }
+
         if($verInicial == 1){
                 $usuario = $sender->getMessage();
                 $bot->message('text', 'Ola, '. $usuario . 'poderia me dizer também sua idade ?');
-         }
+         }else{
+            if($sender->getMessage() == 'Ola'){
+                $bot->message('text', 'Ola eu sou o VIMIT !! seu professor virtual de musica, para que eu possa lhe ajudar melhor poderia me dizer qual o seu nome ?');
+                $verInicial = 1;
+            }
+        }
      }
 
 }
