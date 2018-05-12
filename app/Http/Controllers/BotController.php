@@ -44,9 +44,6 @@ class BotController extends Controller
                 }else{
                     $bot->message('text', 'Hmmm acho que essa não é sua idade '. $usuario. ' poderia me dizer sua idade por favor');
                }
-            }else{
-                $bot->message('text', 'Ola eu sou o VIMIT !! seu professor virtual de musica, para que eu possa lhe ajudar melhor poderia me dizer qual o seu nome ?');
-                $verInicial = true;
             }
         }
 
