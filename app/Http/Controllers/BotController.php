@@ -38,7 +38,7 @@ class BotController extends Controller
 
         if(!$this->first){
             $bot->message('text', 'ola eu sou o vimit, por favor seu nome: ');
-            $first = true;
+            $this->first = true;
         }
         if($this->first){
             if($usuario === '')
