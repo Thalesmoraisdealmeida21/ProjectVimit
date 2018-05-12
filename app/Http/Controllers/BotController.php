@@ -35,7 +35,7 @@ class BotController extends Controller
         $bot = Solid::factory();
         Solid::pageAccessToken('EAAFP19VlnrIBADsfumDncgn5YWXojvrNmpZBf4OxGVcLsRQOTcJs040a26SsLTIdU1crz1wqa668ZBrQgZBgZBjQJmAO0bfMszqfwP6ABAn9umymH6OPlYeEFvrSzF5mO7f941cCIvYl3fQ3xOUqRy3sZBl9sPFLpXl8SAJzjNwZDZD');
         Solid::setSender($senderId);
-
+        $bot->message('text', $this->first);
         if($this->first === 0){
             $this->first = 1;
             $bot->message('text', 'ola eu sou o vimit, por favor seu nome: '. $this->first);
