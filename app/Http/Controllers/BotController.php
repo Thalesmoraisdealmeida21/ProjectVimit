@@ -42,6 +42,7 @@ class BotController extends Controller
                 $bot->message("text", 'Ok me diga seu nome para que possamos iniciar a aula ?');
                 $_SESSION['idMsg'] = 'Ok me diga seu nome para que possamos iniciar a aula ?';
                 $nome = $sender->getMessage();
+                $bot->message('text', $nome);
                 $message->add(new Button('postback', 'CIFRAS', 'cifras'));
                 $message->add(new Button('postback', 'TABLATURAS', 'tablaturas'));
                 $message->add(new Button('postback', 'NOTAS', 'ritmos'));
