@@ -38,7 +38,12 @@ class BotController extends Controller
         session_start();
 
 
-            
+            switch ($postback){
+                case 'cifras': $bot->message('text', 'Voce selecionou a opção de cifras');
+                case 'tablaturas': $bot->message('text', 'Voce selecionou a opção de tablaturas');
+                case 'ritmos': $bot->message('text', 'Voce selecionou a opção de ritmos');
+
+            }
             if($postback === 'iniciar'){
                 $bot->message("text", 'Ok vamos começar');
                 $message->add(new Button('postback', 'CIFRAS', 'cifras'));
