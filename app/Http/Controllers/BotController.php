@@ -30,14 +30,13 @@ class BotController extends Controller
         $senderId = $sender->getSenderId();
         $postback = $sender->getPostback();
         $message = new ButtonsTemplate($senderId);
-        session_start();
 
 
         $bot = Solid::factory();
         Solid::pageAccessToken('EAAFP19VlnrIBADsfumDncgn5YWXojvrNmpZBf4OxGVcLsRQOTcJs040a26SsLTIdU1crz1wqa668ZBrQgZBgZBjQJmAO0bfMszqfwP6ABAn9umymH6OPlYeEFvrSzF5mO7f941cCIvYl3fQ3xOUqRy3sZBl9sPFLpXl8SAJzjNwZDZD');
         Solid::setSender($senderId);
         $callSendApi = new CallSendApi('EAAFP19VlnrIBADsfumDncgn5YWXojvrNmpZBf4OxGVcLsRQOTcJs040a26SsLTIdU1crz1wqa668ZBrQgZBgZBjQJmAO0bfMszqfwP6ABAn9umymH6OPlYeEFvrSzF5mO7f941cCIvYl3fQ3xOUqRy3sZBl9sPFLpXl8SAJzjNwZDZD');
-        $bot->message('text',$_SESSION['idMensagem']);
+
 
 
         if($postback === 'iniciar'){
