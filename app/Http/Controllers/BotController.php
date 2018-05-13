@@ -21,7 +21,6 @@ class BotController extends Controller
         if(!$subscribe){
             abort(403, 'Unauthorized action');
         }
-        $this->first = 0;
         return $subscribe;
     }
 
