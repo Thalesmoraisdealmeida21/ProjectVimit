@@ -40,7 +40,7 @@ class BotController extends Controller
 
 
 
-        $message->add(new Button('web_url', 'Google', 'https://www.google.com.br'));
+        $message->add(new Button('postback', 'Google', 'inciar'));
         $callSendApi->make($message->message('Que tal testarmos a abertura de um site?'));
 
 
