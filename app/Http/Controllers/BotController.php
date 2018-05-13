@@ -50,11 +50,7 @@ class BotController extends Controller
             $callSendApi->make($message->message('Ola eu sou o VIMIT, seu professor virtual de musicapronto para começar nossa aula  ?'));
         }
 
-        if($usuario->getIdMensagemAtu() === 'Certo, mas antes de prosseguirmos para que eu possa lhe ajudar melhor poderia me dizer seu nome ?'){
-            $usuario->setName($sender->getMessage());
-            $bot->message('text', 'Ola, '. $usuario->getName(). 'Sobre o que você desejha saber ?');
-
-        }
+       
 
 
 
