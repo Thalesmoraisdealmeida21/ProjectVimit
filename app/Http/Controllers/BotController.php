@@ -13,7 +13,6 @@ use App\usuario;
 
 class BotController extends Controller
 {
-    private $first;
 
     public function subscribe()
     {
@@ -42,13 +41,13 @@ class BotController extends Controller
                 $bot->message("text", 'Ok me diga seu nome para que possamos iniciar a aula ?');
                 $nome = $sender->getMessage();
                 $bot->message('text', $nome);
-                $this->first = 1;
+                $first = 1;
             }else{
-                $bot->message('text', $this->first);
                 $message->add(new Button('postback', 'Pronto', 'iniciar'));
                 $callSendApi->make($message->message('Ola eu sou o VIMIT, seu professor virtual de musicapronto para começar nossa aula  ?'));
-
             }
+
+            $first = 0;
 
 
 
