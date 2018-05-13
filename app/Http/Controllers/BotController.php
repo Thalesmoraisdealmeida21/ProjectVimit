@@ -14,9 +14,6 @@ use App\usuario;
 class BotController extends Controller
 {
     private $first = 0;
-    private $usuario = '';
-    private $usuario = new usuario\Usuario();
-
     public function subscribe()
     {
         $subscribe = (new WebHook)->check('a1sd65162sad16as6das1d1as66asd1sad1611');
