@@ -40,13 +40,12 @@ class BotController extends Controller
 
             if($postback === 'iniciar'){
                 $bot->message("text", 'Ok me diga seu nome para que possamos iniciar a aula ?');
-                $_SESSION['idMsg'] = 1;
-                $usuario = $sender->getMessage();
-                $bot->message('text', $_SESSION['idMsg']);
+                $_SESSION['idMsg'] = 'Ok me diga seu nome para que possamos iniciar a aula ?';
+                $nome = $sender->getMessage();
                 $message->add(new Button('postback', 'CIFRAS', 'cifras'));
                 $message->add(new Button('postback', 'TABLATURAS', 'tablaturas'));
                 $message->add(new Button('postback', 'NOTAS', 'ritmos'));
-                $callSendApi->make($message->message('Ola, '. $usuario. 'em que posso lhe ajudar'));
+                $callSendApi->make($message->message('Ola, '. $nome. 'em que posso lhe ajudar'));
 
 
             }else{
