@@ -50,6 +50,7 @@ class BotController extends Controller
 
 
             }else{
+                $bot->message('text', $_SESSION['idMsg']);
                 $message->add(new Button('postback', 'Pronto', 'iniciar'));
                 $callSendApi->make($message->message('Ola eu sou o VIMIT, seu professor virtual de musicapronto para começar nossa aula  ?'));
 
