@@ -41,11 +41,8 @@ class BotController extends Controller
 
 
         $bot->message('text', 'ola eu sou o VIMIT, vamo começar nossa aula');
-        if($postback === "iniciar"){
-                $bot->message("text", 'Sobre o que voce quer abrender CIFRAS, TABLATURAS, RITMOS ?');
-        }else{
-            $message->add(new Button('postback', 'Iniciar aula', 'iniciar'));
-        }
+        $message->add(new Button('postback', 'Iniciar aula', 'iniciar'));
+
 
 
 
