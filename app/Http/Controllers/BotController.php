@@ -40,8 +40,9 @@ class BotController extends Controller
 
 
 
-        $message->add(new Button('postback', 'Google', 'inciar'));
-        $callSendApi->make($message->message('Que tal testarmos a abertura de um site?'));
+        $message->add(new Button('postback', 'Pronto', 'inciar'));
+        $callSendApi->make($message->message('Ola eu sou o VIMIT, seu professor virtual de musicapronto para começar nossa aula  ?'));
+        
 
 
 
