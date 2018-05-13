@@ -32,6 +32,7 @@ class BotController extends Controller
         $postback = $sender->getPostback();
         $message = new ButtonsTemplate($senderId);
         $nomeUser = '';
+        session_start();
 
 
         $bot = Solid::factory();
@@ -45,15 +46,20 @@ class BotController extends Controller
         if($postback === 'iniciar'){
             $usuario = new usuario\Usuario();
             $bot->message('text','Certo, mas antes de prosseguirmo para que eu possa lhe ajudar melhor poderia me dizer seu nome ?');
-            $usuario->setIdMensagemAtu('Certo, mas antes de prosseguirmo para que eu possa lhe ajudar melhor poderia me dizer seu nome ?');
+            $_SESSION['idMensagem'] = 1;
         }else {
             $message->add(new Button('postback', 'Pronto', 'iniciar'));
             $callSendApi->make($message->message('Ola eu sou o VIMIT, seu professor virtual de musicapronto para começar nossa aula  ?'));
         }
-        if($usuario->getIdMensagemAtu() === 'Certo, mas antes de prosseguirmos para que eu possa lhe ajudar melhor poderia me dizer seu nome ?'){
-            $usuario->setName($sender->getMessage());
-            $bot->message('text', 'Ola, '. $usuario->getName(). 'Sobre o que você desejha saber ?');
+
+        if($_SESSION['idMensagem'] === 1){
+            $bot->message('text','Ola, '. $sender->getMessage() . 'em que posso ajudalo ?');
         }
+
+
+
+
+
 
 
 
