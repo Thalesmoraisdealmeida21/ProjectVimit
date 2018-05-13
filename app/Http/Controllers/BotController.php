@@ -39,7 +39,7 @@ class BotController extends Controller
         session_start();
 
             if($postback === 'iniciar'){
-                $bot->message("texy", 'Ok me diga seu nome para que possamos iniciar a aula ?');
+                $bot->message("text", 'Ok me diga seu nome para que possamos iniciar a aula ?');
             }else {
                 $message->add(new Button('postback', 'Pronto', 'iniciar'));
                 $callSendApi->make($message->message('Ola eu sou o VIMIT, seu professor virtual de musicapronto para começar nossa aula  ?'));
