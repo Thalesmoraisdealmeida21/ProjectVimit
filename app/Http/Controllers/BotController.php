@@ -52,9 +52,7 @@ class BotController extends Controller
             $callSendApi->make($message->message('Ola eu sou o VIMIT, seu professor virtual de musicapronto para começar nossa aula  ?'));
         }
 
-        if($_SESSION['idMensagem'] === 1){
-            $bot->message('text','Ola, '. $sender->getMessage() . 'em que posso ajudalo ?');
-        }
+       
 
 
 
