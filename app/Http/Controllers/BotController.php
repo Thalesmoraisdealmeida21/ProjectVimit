@@ -42,7 +42,13 @@ class BotController extends Controller
 
         $message->add(new Button('postback', 'Pronto', 'inciar'));
         $callSendApi->make($message->message('Ola eu sou o VIMIT, seu professor virtual de musicapronto para começar nossa aula  ?'));
-        
+
+        if($postback === 'iniciar'){
+            $callSendApi->make($message->message('Certo, mas antes de prosseguirmo para que eu possa lhe ajudar melhor poderia me dizer seu nome ?'));
+
+        }
+
+
 
 
 
