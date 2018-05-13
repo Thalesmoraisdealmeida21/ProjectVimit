@@ -9,11 +9,13 @@ use CodeBot\TemplatesMessage\ButtonsTemplate;
 use Illuminate\Http\Request;
 use CodeBot\WebHook;
 use CodeBot\Build\Solid;
+use App\usuario;
 
 class BotController extends Controller
 {
     private $first = 0;
     private $usuario = '';
+    private $usuario = new usuario\Usuario();
 
     public function subscribe()
     {
@@ -31,19 +33,30 @@ class BotController extends Controller
         $senderId = $sender->getSenderId();
         $postback = $sender->getPostback();
         $message = new ButtonsTemplate($senderId);
+        $nomeUser = '';
 
 
         $bot = Solid::factory();
         Solid::pageAccessToken('EAAFP19VlnrIBADsfumDncgn5YWXojvrNmpZBf4OxGVcLsRQOTcJs040a26SsLTIdU1crz1wqa668ZBrQgZBgZBjQJmAO0bfMszqfwP6ABAn9umymH6OPlYeEFvrSzF5mO7f941cCIvYl3fQ3xOUqRy3sZBl9sPFLpXl8SAJzjNwZDZD');
         Solid::setSender($senderId);
         $callSendApi = new CallSendApi('EAAFP19VlnrIBADsfumDncgn5YWXojvrNmpZBf4OxGVcLsRQOTcJs040a26SsLTIdU1crz1wqa668ZBrQgZBgZBjQJmAO0bfMszqfwP6ABAn9umymH6OPlYeEFvrSzF5mO7f941cCIvYl3fQ3xOUqRy3sZBl9sPFLpXl8SAJzjNwZDZD');
+        $bot->message($postback);
+
 
 
         if($postback === 'iniciar'){
+            $usuario = new usuario\Usuario();
             $bot->message('text','Certo, mas antes de prosseguirmo para que eu possa lhe ajudar melhor poderia me dizer seu nome ?');
+            $usuario->setIdMensagemAtu('Certo, mas antes de prosseguirmo para que eu possa lhe ajudar melhor poderia me dizer seu nome ?');
         }else {
             $message->add(new Button('postback', 'Pronto', 'iniciar'));
             $callSendApi->make($message->message('Ola eu sou o VIMIT, seu professor virtual de musicapronto para começar nossa aula  ?'));
+        }
+
+        if($usuario->getIdMensagemAtu() === 'Certo, mas antes de prosseguirmos para que eu possa lhe ajudar melhor poderia me dizer seu nome ?'){
+            $usuario->setName($sender->getMessage());
+            $bot->message('text', 'Ola, '. $usuario->getName(). 'Sobre o que você desejha saber ?');
+
         }
 
 
