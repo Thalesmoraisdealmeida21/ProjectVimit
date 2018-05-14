@@ -87,6 +87,19 @@ Na lembrança da primeira vez.');
             }
 
 
+
+
+            switch ($sender->getMessage()){
+                case 'C': $bot->message('Image', 'https://uploaddeimagens.com.br/imagens/screenshot_1-png-f92f8b8d-1d3c-4e6c-87a0-3e95849d6328');
+                case 'D': $bot->message('text', 'ainda não programado');
+                case 'E': $bot->message('text', 'ainda não programado');
+                case 'F': $bot->message('text', 'ainda não programado');
+                case 'G': $bot->message('text', 'ainda não programado');
+                case 'A': $bot->message('text', 'ainda não programado');
+                case 'B': $bot->message('text', 'ainda não programado');
+            }
+
+
             if($postback === 'iniciar'){
                 $bot->message("text", 'Ok vamos começar');
                 $message->add(new Button('postback', 'CIFRAS', 'cifras'));
@@ -110,6 +123,17 @@ Na lembrança da primeira vez.');
                         $bot->message('text','Lembranças');
                         $bot->message('text','Musica exemplo');
                     }
+                    if($postback === 'tablaturas'){
+                        $bot->message('text', 'Certo então você deseja conhecer um pouco sobre tablaturas eu conheço todas as tablaturas de notas maiores me diga qual delas você não conhece ?');
+                        $bot->message('text','C, DO');
+                        $bot->message('text','D, RE');
+                        $bot->message('text','E, MI');
+                        $bot->message('text','F, FA');
+                        $bot->message('text','G, SOL');
+                        $bot->message('text','A, LA');
+                        $bot->message('text','B, SI');
+                    }
+
 
                 }
 
