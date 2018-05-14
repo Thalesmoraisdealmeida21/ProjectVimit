@@ -39,7 +39,7 @@ class BotController extends Controller
 
 
 
-            switch(strtoupper($sender->getMessage())){
+            switch($sender->getMessage()){
                 case 'LEMBRANÇAS': $bot->message('text', 'Intro: F  C  Bb  C  F
 
 F                              C
