@@ -39,6 +39,53 @@ class BotController extends Controller
 
 
 
+            switch(strtoupper($sender->getMessage())){
+                case 'LEMBRANÇAS': $bot->message('text', 'Intro: F  C  Bb  C  F
+
+F                              C
+Quando as almas perdidas se encontram
+                       F
+Machucadas pelo desprazer
+    Bb      F                C
+Um aceno um riso apenas
+                       F
+Da vontade da gente viver
+                            C
+São os velhos mistérios da vida
+                         Bb
+Rebenquiados pelo dia-a-dia
+
+      F                     C
+Já cansados de tanta tristeza
+                          F
+Vão em busca de nova alegria (2x)
+
+Solo: F  C  Bb  C  F
+
+F                          C
+E ao morrer desta tarde morena
+                           F
+Quando o sol despacito se vai
+      Bb            F           C
+As lembranças tranqueiam com as águas
+                        F
+Passageiras do rio Uruguai
+                          C
+E as guitarras eternas cigarras
+                             Bb
+Entre as flores dos velhos ipês
+
+        F                    C
+Sempre vivas dormidas se acordam
+                          F
+Na lembrança da primeira vez
+
+        Bb                 C
+Sempre vivas dormidas se acordam
+                          F
+Na lembrança da primeira vez.');
+            }
+
 
             if($postback === 'iniciar'){
                 $bot->message("text", 'Ok vamos começar');
@@ -47,17 +94,25 @@ class BotController extends Controller
                 $message->add(new Button('postback', 'NOTAS', 'ritmos'));
                 $callSendApi->make($message->message('em que posso lhe ajudar'));
             }else{
-                if($postback == 'cifras'){
+                if($postback === 'cifras'){
                     $bot->message('text', 'Ok, suponho que você ja saiba alguma coisa mas me diga qual o nivel da cifra que voce quer');
                     $message->add(new Button('postback', 'FACIL', 'easy'));
                     $message->add(new Button('postback', 'MEDIO', 'medium'));
                     $message->add(new Button('postback', 'DIFICIL', 'hard'));
                     $callSendApi->make($message->message('Dificuldades da cifra: '));
-                }else {
-                       $message->add(new Button('postback', 'Pronto', 'iniciar'));
+                }else{
+                        $message->add(new Button('postback', 'Pronto', 'iniciar'));
                         $callSendApi->make($message->message('Ola eu sou o VIMIT, seu professor virtual de musicapronto para começar nossa aula  ?'));
                     }
+                    switch($postback){
+                        case 'easy': $bot->message('text', 'Ok então você arrecem aprender aqui está uma lista das cifdras que eu conheço qual delas lhe chama mais a atenção');
+                        $bot->message('text','Chalana');
+                        $bot->message('text','Lembranças');
+                        $bot->message('text','Musica exemplo');
+                    }
+
                 }
+
 
      }
 
