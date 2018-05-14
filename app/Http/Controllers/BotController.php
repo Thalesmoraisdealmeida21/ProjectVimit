@@ -48,7 +48,7 @@ class BotController extends Controller
                 $callSendApi->make($message->message('em que posso lhe ajudar'));
             }else{
                 if($postback == 'cifras'){
-                    $bot->message('text', 'Ok, suponho que você ja saiba alguma coisa mas me diga qual o nivel da cifra que voce quer')
+                    $bot->message('text', 'Ok, suponho que você ja saiba alguma coisa mas me diga qual o nivel da cifra que voce quer');
                     $message->add(new Button('postback', 'FACIL', 'easy'));
                     $message->add(new Button('postback', 'MEDIO', 'medium'));
                     $message->add(new Button('postback', 'DIFICIL', 'hard'));
