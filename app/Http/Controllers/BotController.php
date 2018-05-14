@@ -90,7 +90,7 @@ Na lembrança da primeira vez.');
 
 
             switch ($sender->getMessage()){
-                case 'C': $bot->message('Image', 'https://uploaddeimagens.com.br/imagens/screenshot_1-png-f92f8b8d-1d3c-4e6c-87a0-3e95849d6328');
+                case 'C': $bot->message('Image', 'https://image.ibb.co/b63qWJ/Screenshot_1.png');
                 case 'D': $bot->message('text', 'ainda não programado');
                 case 'E': $bot->message('text', 'ainda não programado');
                 case 'F': $bot->message('text', 'ainda não programado');
