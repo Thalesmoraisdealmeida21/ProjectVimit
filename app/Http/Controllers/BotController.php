@@ -44,30 +44,7 @@ class BotController extends Controller
 
 
            /* Possibilidades de CIFRAS*/
-            switch($mensagem1){
-                case 'LEMBRANÇAS': $bot->message('text', 'cifra da musica LEMBRANÇAS');
-                case 'CHALANA': $bot->message('text', 'cifra da musica CHALANA');
-                case 'LENHA': $bot->message('text', 'cifra da musica LENHA');
-                case 'FLOR': $bot->message('text', 'cifra da musica FLOR');
-                case 'DIGA A ELA': $bot->message('text', 'cifra da musica DIGA A ELA');
-                case 'TERTULIA': $bot->message('text', 'cifra da musica TERTULIA');
-                case 'ERA UMA VEZ': $bot->message('text', 'cifra da musica ERA UMA VEZ');
-                case 'BELLA CIAO': $bot->message('text', 'cifra da musica BELLA CIAO');
-                case 'LA NA FRONTEIRA': $bot->message('text', 'cifra da musica LA NA FRONTEIRA');
-            }
 
-
-
-
-            switch ($sender->getMessage()){
-                case 'C': $bot->message('Image', 'https://image.ibb.co/b63qWJ/Screenshot_1.png');
-                case 'D': $bot->message('text', 'ainda não programado');
-                case 'E': $bot->message('text', 'ainda não programado');
-                case 'F': $bot->message('text', 'ainda não programado');
-                case 'G': $bot->message('text', 'ainda não programado');
-                case 'A': $bot->message('text', 'ainda não programado');
-                case 'B': $bot->message('text', 'ainda não programado');
-            }
 
 
             if($postback === 'iniciar'){
