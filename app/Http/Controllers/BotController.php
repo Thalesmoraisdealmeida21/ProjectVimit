@@ -44,6 +44,25 @@ class BotController extends Controller
 
 
            /* Possibilidades de CIFRAS*/
+            if($mensagem1 === 'LEMBRANÇAS'){
+                $bot->message('text', 'CIFRA LEMBRANÇAS');
+            } else if($mensagem1 === 'CHALANA'){
+                $bot->message('text', 'CIFRA CHALANA');
+            } else if($mensagem1 === 'LENHA'){
+                $bot->message('text', 'CIFRA LENHA');
+            } else if($mensagem1 === 'FLOR'){
+                $bot->message('text', 'CIFRA FLOR');
+            } else if($mensagem1 === 'DIGA A ELA'){
+                $bot->message('text', 'CIFRA DIGA A ELA');
+            }else if($mensagem1 === 'TERTULIA'){
+                $bot->message('text', 'CIFRA TERTULIA');
+            } else if($mensagem1 === 'LA NA FRONTEIRA'){
+                $bot->message('text', 'CIFRA LA NA FRONTEIRA');
+            }else if($mensagem1 === 'ERA UMA VEZ'){
+                $bot->message('text', 'CIFRA ERA UMA VEZ');
+            }else if($mensagem1 === 'BELLA CIAO'){
+                $bot->message('text', 'CIFRA BELLA CIAO');
+            }
 
 
 
