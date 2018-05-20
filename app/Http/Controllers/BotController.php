@@ -11,6 +11,8 @@ use CodeBot\WebHook;
 use CodeBot\Build\Solid;
 use App\usuario;
 
+
+
 class BotController extends Controller
 {
 
@@ -36,54 +38,22 @@ class BotController extends Controller
         Solid::setSender($senderId);
         $callSendApi = new CallSendApi('EAAFP19VlnrIBADsfumDncgn5YWXojvrNmpZBf4OxGVcLsRQOTcJs040a26SsLTIdU1crz1wqa668ZBrQgZBgZBjQJmAO0bfMszqfwP6ABAn9umymH6OPlYeEFvrSzF5mO7f941cCIvYl3fQ3xOUqRy3sZBl9sPFLpXl8SAJzjNwZDZD');
         session_start();
+        $mensagem1 = $sender->getMessage();
+
+        $mensagem1= strtoupper($mensagem1);
 
 
-
-            switch($sender->getMessage()){
-                case 'LEMBRANÇAS': $bot->message('text', 'Intro: F  C  Bb  C  F
-
-F                              C
-Quando as almas perdidas se encontram
-                       F
-Machucadas pelo desprazer
-    Bb      F                C
-Um aceno um riso apenas
-                       F
-Da vontade da gente viver
-                            C
-São os velhos mistérios da vida
-                         Bb
-Rebenquiados pelo dia-a-dia
-
-      F                     C
-Já cansados de tanta tristeza
-                          F
-Vão em busca de nova alegria (2x)
-
-Solo: F  C  Bb  C  F
-
-F                          C
-E ao morrer desta tarde morena
-                           F
-Quando o sol despacito se vai
-      Bb            F           C
-As lembranças tranqueiam com as águas
-                        F
-Passageiras do rio Uruguai
-                          C
-E as guitarras eternas cigarras
-                             Bb
-Entre as flores dos velhos ipês
-
-        F                    C
-Sempre vivas dormidas se acordam
-                          F
-Na lembrança da primeira vez
-
-        Bb                 C
-Sempre vivas dormidas se acordam
-                          F
-Na lembrança da primeira vez.');
+           /* Possibilidades de CIFRAS*/
+            switch($mensagem1){
+                case 'LEMBRANÇAS': $bot->message('text', 'cifra da musica LEMBRANÇAS');
+                case 'CHALANA': $bot->message('text', 'cifra da musica CHALANA');
+                case 'LENHA': $bot->message('text', 'cifra da musica LENHA');
+                case 'FLOR': $bot->message('text', 'cifra da musica FLOR');
+                case 'DIGA A ELA': $bot->message('text', 'cifra da musica DIGA A ELA');
+                case 'TERTULIA': $bot->message('text', 'cifra da musica TERTULIA');
+                case 'ERA UMA VEZ': $bot->message('text', 'cifra da musica ERA UMA VEZ');
+                case 'BELLA CIAO': $bot->message('text', 'cifra da musica BELLA CIAO');
+                case 'LA NA FRONTEIRA': $bot->message('text', 'cifra da musica LA NA FRONTEIRA');
             }
 
 
