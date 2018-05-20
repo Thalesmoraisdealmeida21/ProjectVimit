@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+require_once ('cifras.php');
+
 use CodeBot\CallSendApi;
 use CodeBot\Element\Button;
 use CodeBot\SenderRequest;
@@ -45,7 +47,7 @@ class BotController extends Controller
 
            /* Possibilidades de CIFRAS*/
             if($mensagem1 === 'LEMBRANÇAS'){
-                $bot->message('text', 'CIFRA LEMBRANÇAS');
+                $bot->message('text', $lembranças);
             } else if($mensagem1 === 'CHALANA'){
                 $bot->message('text', 'CIFRA CHALANA');
             } else if($mensagem1 === 'LENHA'){
