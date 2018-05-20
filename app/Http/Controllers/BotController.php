@@ -104,7 +104,9 @@ class BotController extends Controller
                         $bot->message('text','ERA UMA VEZ');
                         $bot->message('text','BELLA CIAO');
                         $bot->message('text','LA NA FRONTEIRA');
-                    case '': $bot->message('text', 'Ola eu sou o VIMIT, seu professor virtual de musicapronto para começar nossa aula  ?');
+                       case '':  $message->add(new Button('postback', 'pronto', 'iniciar'));
+                           $callSendApi->make($message->message('Ola eu sou o VIMIT, seu professor virtual de musicapronto para começar nossa aula  ?'));
+
                 }
                 }
 
