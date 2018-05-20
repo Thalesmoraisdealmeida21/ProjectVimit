@@ -88,10 +88,18 @@ class BotController extends Controller
                         $callSendApi->make($message->message('Ola eu sou o VIMIT, seu professor virtual de musicapronto para começar nossa aula  ?'));
                     }
                     switch($postback){
-                        case 'easy': $bot->message('text', 'Ok então você arrecem aprender aqui está uma lista das cifdras que eu conheço qual delas lhe chama mais a atenção');
+                        case 'easy': $bot->message('text', 'Ok então você está começando a aprender aqui está uma lista das cifdras que eu conheço qual delas lhe chama mais a atenção');
                         $bot->message('text','Chalana');
                         $bot->message('text','Lembranças');
-                        $bot->message('text','Musica exemplo');
+                        $bot->message('text','LENHA');
+                        case 'medium': $bot->message('text', 'Beleza, então você ja tem uma caminhada com a musica neste caso veja abaixo algumas cifras um pouco mais avançadas e me diga qual voce quero aprender');
+                        $bot->message('text', 'FLOR');
+                        $bot->message('text', 'DIGA A ELA');
+                        $bot->message('text', 'TERTULIA');
+                        case 'hard': $bot->message('text', 'Ok, Então você ja é especialista no assunto veja algumas cifras nivel expert');
+                        $bot->message('text','ERA UMA VEZ');
+                        $bot->message('text','BELLA CIAO');
+                        $bot->message('text','LA NA FRONTEIRA');
                     }
                     if($postback === 'tablaturas'){
                         $bot->message('text', 'Certo então você deseja conhecer um pouco sobre tablaturas eu conheço todas as tablaturas de notas maiores me diga qual delas você não conhece ?');
