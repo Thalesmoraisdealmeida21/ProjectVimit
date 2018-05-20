@@ -644,6 +644,9 @@ Morto per la libertà
 È questo il fiore del partigiano
        D          Em
 Morto per la libertà');
+            }else if(($mensagem1 === 'C') or($mensagem1 === 'DO')){
+                $bot->message('image', 'https://i.imgur.com/wdzJ7fw.png');
+
             }else{
                 if($postback === 'iniciar'){
                     $bot->message("text", 'Ok vamos começar');
@@ -674,6 +677,15 @@ Morto per la libertà');
                             $bot->message('text','era uma vez');
                             $bot->message('text','bella ciao');
                             $bot->message('text','la na fronteira');
+                        }else if($postback === 'tablaturas'){
+                            $bot->message('text', 'Muito bem entãoo voce quer conhcer um pouco mais sobre tablaturas me diga qual');
+                            $bot->message('text', 'C, DO');
+                            $bot->message('text', 'D, RE');
+                            $bot->message('text', 'E, MI');
+                            $bot->message('text', 'F, FA');
+                            $bot->message('text', 'G, SOL');
+                            $bot->message('text', 'A, LA');
+                            $bot->message('text', 'B, SI');
                         } else {
                             $message->add(new Button('postback', 'pronto', 'iniciar'));
                             $callSendApi->make($message->message('Ola eu sou vimit'));
