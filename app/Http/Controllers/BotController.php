@@ -62,50 +62,45 @@ class BotController extends Controller
                 $bot->message('text', 'CIFRA ERA UMA VEZ');
             }else if($mensagem1 === 'BELLA CIAO'){
                 $bot->message('text', 'CIFRA BELLA CIAO');
-            }
-
-
-
-            if($postback === 'iniciar'){
-                $bot->message("text", 'Ok vamos começar');
-                $message->add(new Button('postback', 'CIFRAS', 'cifras'));
-                $message->add(new Button('postback', 'TABLATURAS', 'tablaturas'));
-                $message->add(new Button('postback', 'NOTAS', 'ritmos'));
-                $callSendApi->make($message->message('em que posso lhe ajudar'));
             }else{
-                if($postback === 'cifras'){
-                    $bot->message('text', 'Ok, suponho que você ja saiba alguma coisa mas me diga qual o nivel da cifra que voce quer');
-                    $message->add(new Button('postback', 'FACIL', 'easy'));
-                    $message->add(new Button('postback', 'MEDIO', 'medium'));
-                    $message->add(new Button('postback', 'DIFICIL', 'hard'));
-                    $callSendApi->make($message->message('Dificuldades da cifra: '));
+                if($postback === 'iniciar'){
+                    $bot->message("text", 'Ok vamos começar');
+                    $message->add(new Button('postback', 'CIFRAS', 'cifras'));
+                    $message->add(new Button('postback', 'TABLATURAS', 'tablaturas'));
+                    $message->add(new Button('postback', 'NOTAS', 'ritmos'));
+                    $callSendApi->make($message->message('em que posso lhe ajudar'));
                 }else{
-                    if($postback === 'easy'){
-                        $bot->message('text', 'Certo, então voce está arrecem começando veja algumas das cifras que eu posso lhe ajudar ?');
-                        $bot->message('text','LEMBRANÇAS');
-                        $bot->message('text','CHALANA');
-                        $bot->message('text','LENHA');
-                    }else if($postback === 'medium'){
-                        $bot->message('text', 'Certo, então voce ja sabe alguma coisa veja então algumas cifras maix complexas um pouco ?');
-                        $bot->message('text','flor');
-                        $bot->message('text','diga a ela');
-                        $bot->message('text','tertulia');
-                    } else if($postback === 'hard'){
-                        $bot->message('text', 'Muito bem, então você ja é um expert veja algumas cifras mais avancadas');
-                        $bot->message('text','era uma vez');
-                        $bot->message('text','bella ciao');
-                        $bot->message('text','la na fronteira');
-                    } else {
-                        $message->add(new Button('postback', 'pronto', 'iniciar'));
-                        $callSendApi->make($message->message('Ola eu sou vimit'));
+                    if($postback === 'cifras'){
+                        $bot->message('text', 'Ok, suponho que você ja saiba alguma coisa mas me diga qual o nivel da cifra que voce quer');
+                        $message->add(new Button('postback', 'FACIL', 'easy'));
+                        $message->add(new Button('postback', 'MEDIO', 'medium'));
+                        $message->add(new Button('postback', 'DIFICIL', 'hard'));
+                        $callSendApi->make($message->message('Dificuldades da cifra: '));
+                    }else{
+                        if($postback === 'easy'){
+                            $bot->message('text', 'Certo, então voce está arrecem começando veja algumas das cifras que eu posso lhe ajudar ?');
+                            $bot->message('text','LEMBRANÇAS');
+                            $bot->message('text','CHALANA');
+                            $bot->message('text','LENHA');
+                        }else if($postback === 'medium'){
+                            $bot->message('text', 'Certo, então voce ja sabe alguma coisa veja então algumas cifras maix complexas um pouco ?');
+                            $bot->message('text','flor');
+                            $bot->message('text','diga a ela');
+                            $bot->message('text','tertulia');
+                        } else if($postback === 'hard'){
+                            $bot->message('text', 'Muito bem, então você ja é um expert veja algumas cifras mais avancadas');
+                            $bot->message('text','era uma vez');
+                            $bot->message('text','bella ciao');
+                            $bot->message('text','la na fronteira');
+                        } else {
+                            $message->add(new Button('postback', 'pronto', 'iniciar'));
+                            $callSendApi->make($message->message('Ola eu sou vimit'));
+                        }
                     }
+                 }
+
                 }
-
-
             }
 
-
-
-     }
 
 }
