@@ -45,7 +45,7 @@ class BotController extends Controller
 
 
            /* Possibilidades de CIFRAS*/
-            if($mensagem1 === 'LEMBRANÇAS'){
+          /*  if($mensagem1 === 'LEMBRANÇAS'){
                 $bot->message('text', 'F                              C
 Quando as almas perdidas se encontram
                        F
@@ -593,7 +593,7 @@ O bella ciao, bella ciao, bella ciao ciao ciao
         Am               Em
 Una mattina mi son svegliato
           B7         Em
-Eo ho trovato l\'invasor
+Eo ho trovato linvasor
 
         Em
 O partigiano porta mi via
@@ -644,7 +644,29 @@ Morto per la libertà
 È questo il fiore del partigiano
        D          Em
 Morto per la libertà');
-            }else{
+            }else if(($mensagem1 === 'C') or($mensagem1 === 'DO')){
+                $bot->message('text', 'Aqui está a escala basica de do maior');
+                $bot->message('image', 'https://i.imgur.com/wdzJ7fw.png');
+
+            }else if(($mensagem1 === 'D') or($mensagem1 === 'RE')){
+                $bot->message('text', 'Aqui está a escala basica de re MAIOR');
+                $bot->message('image', 'https://i.imgur.com/P2SUHdw.png');
+            } else if (($mensagem1 === 'E') or($mensagem1 === 'MI')){
+                $bot->message('text', 'Aqui está a escala basica de mi MAIOR');
+                $bot->message('image', 'https://i.imgur.com/KxdNvz9.png');
+            } else if(($mensagem1 === 'F') or($mensagem1 === 'FA')){
+                $bot->message('text', 'Aqui está a escala basica de fa MAIOR');
+                $bot->message('image', 'https://i.imgur.com/paqlek2.png');
+            }else if (($mensagem1 === 'G') or($mensagem1 === 'SOL')){
+                $bot->message('text', 'Aqui está a escala basica de sol MAIOR');
+                $bot->message('image', 'https://i.imgur.com/J4jqbWc.png');
+            }else if (($mensagem1 === 'A') or($mensagem1 === 'LA')){
+                $bot->message('text', 'Aqui está a escala basica de la MAIOR');
+                $bot->message('image', 'https://i.imgur.com/vVJvKHZ.png');
+            }else if(($mensagem1 === 'B') or($mensagem1 === 'SI')){
+                $bot->message('text', 'Aqui está a escala basica de la MAIOR');
+                $bot->message('image', 'https://i.imgur.com/LSwm2Yn.png');
+            } else{
                 if($postback === 'iniciar'){
                     $bot->message("text", 'Ok vamos começar');
                     $message->add(new Button('postback', 'CIFRAS', 'cifras'));
@@ -690,7 +712,9 @@ Morto per la libertà');
                     }
                  }
 
-                }
+                }*/
+
+          $bot->message('text', 'apenas um teste');
             }
 
 
