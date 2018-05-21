@@ -45,7 +45,7 @@ class BotController extends Controller
 
 
            /* Possibilidades de CIFRAS*/
-          /*  if($mensagem1 === 'LEMBRANÇAS'){
+           if($mensagem1 === 'LEMBRANÇAS'){
                 $bot->message('text', 'F                              C
 Quando as almas perdidas se encontram
                        F
@@ -712,7 +712,7 @@ Morto per la libertà');
                     }
                  }
 
-                }*/
+                }
 
           $bot->message('text', 'apenas um teste');
             }
