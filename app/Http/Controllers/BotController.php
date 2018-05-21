@@ -620,7 +620,7 @@ O bella ciao, bella ciao, bella ciao ciao ciao
          Am               Em
 E seppellire lassù in montagna
         B7               Em
-Sotto l\'ombra di un bel fior
+Sotto lombra di un bel fior
 
 Em
 E le genti che passeranno
