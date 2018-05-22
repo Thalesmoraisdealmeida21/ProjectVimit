@@ -736,7 +736,7 @@ Morto per la libertà');
                             $bot->message('text', 'DO, RE, MI, FA, SOL, LA');
                         }else{
                             $message->add(new Button('postback', 'pronto', 'iniciar'));
-                            $callSendApi->make($message->message('Ola eu sou vimit'));
+                            $callSendApi->make($message->message('Ola eu sou vimit seu professor virtual de musica em que posso lhe ajudar ?'));
                         }
                     }
                  }
