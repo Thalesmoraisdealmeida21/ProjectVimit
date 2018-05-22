@@ -666,12 +666,30 @@ Morto per la libertà');
             }else if(($mensagem1 === 'B') or($mensagem1 === 'SI')){
                 $bot->message('text', 'Aqui está a escala basica de la MAIOR');
                 $bot->message('image', 'https://i.imgur.com/LSwm2Yn.png');
-            } else{
+            } else if($mensagem1 === 'DO') {
+                $bot->message('text', 'Muito bem o acorde de DO é um dos mais basicos porém se voce está aprendendo pode ter alguma dificuldade então tome cuidado');
+                $bot->message('image', 'https://acordesdeviolao.com.br/wp-content/uploads/2011/07/c-major-chord01.gif');
+
+           }else if($mensagem1 === 'RE'){
+               $bot->message('text', 'abaixo voce pode visualizar o acorde de RE maior');
+               $bot->message('image', 'http://iniciantesdoviolao.com.br/wp-content/uploads/2015/08/Re-Maior-Acorde-F%C3%A1cil.jpg');
+           }else if($mensagem1 === 'MI'){
+               $bot->message('image', 'http://iniciantesdoviolao.com.br/wp-content/uploads/2015/08/Acorde-F%C3%A1cil-de-Mi-Maior.jpg');
+           }else if($mensagem1 === 'FA'){
+               $bot->message('image', 'http://www.descomplicandoamusica.com/wp-content/uploads/2015/09/pestana.jpg');
+           }else if($mensagem1 === 'SOL'){
+               $bot->message('image', 'http://blog.santoangelo.com.br/wp-content/uploads/2015/07/AAIANVGETTC-002.jpg');
+           }else if($mensagem1 === 'LA'){
+               $bot->message('image', 'http://iniciantesdoviolao.com.br/wp-content/uploads/2015/08/Acorde-de-L%C3%A1-Maior.jpg');
+           }else if($mensagem1 === 'SI'){
+               $bot->message('image', 'http://www.mundodoviolao.com.br/wp-content/uploads/2009/07/acorde-si.jpg');
+           }
+           else{
                 if($postback === 'iniciar'){
                     $bot->message("text", 'Ok vamos começar');
                     $message->add(new Button('postback', 'CIFRAS', 'cifras'));
                     $message->add(new Button('postback', 'TABLATURAS', 'tablaturas'));
-                    $message->add(new Button('postback', 'NOTAS', 'ritmos'));
+                    $message->add(new Button('postback', 'NOTAS', 'notas'));
                     $callSendApi->make($message->message('em que posso lhe ajudar'));
                 }else{
                     if($postback === 'cifras'){
@@ -705,7 +723,18 @@ Morto per la libertà');
                             $bot->message('text', 'G, SOL');
                             $bot->message('text', 'A, LA');
                             $bot->message('text', 'B, SI');
-                        } else {
+                        } else if($postback === 'notas'){
+                            $bot->message('text', 'Então voce deseja conhecer os prinipais acorde, qual deles melhor lhe interessa ?');
+                            $bot->message('text', 'Devo lembrar que nos acordes a seguir os dedos são representados por numeros nos diagramas do braço do violão sendo eles:');
+                            $bot->message('text', '1 – representa o indicador.
+
+2 – anelar.
+
+3 – médio.
+
+4 – mindinho.');
+                            $bot->message('text', 'DO, RE, MI, FA, SOL, LA');
+                        }else{
                             $message->add(new Button('postback', 'pronto', 'iniciar'));
                             $callSendApi->make($message->message('Ola eu sou vimit'));
                         }
@@ -714,7 +743,6 @@ Morto per la libertà');
 
                 }
 
-          $bot->message('text', 'apenas um teste');
             }
 
 
